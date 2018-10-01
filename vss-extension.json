@@ -1,10 +1,10 @@
 {
     "manifestVersion": 1.0,
-    "id": "vsts-rest-multivalue-control",
-    "version": "2.0.5",
-    "name": "Rest Multivalue Control",
-    "description": "A work item form control which allows selection of multiple values from rest apis.",
-    "publisher": "ottostreifel",
+    "id": "vsts-multivalue-control-ext",
+    "version": "2.0.17",
+    "name": "Multivalue Control Ext",
+    "description": "A work item form control which allows selection of multiple values from rest apis or suggested values field.",
+    "publisher": "rwahl",
     "icons": {
         "default": "img/logo.png"
     },
@@ -32,7 +32,7 @@
     ],
     "repository": {
         "type": "git",
-        "uri": "https://github.com/ostreifel/vsts-rest-multivalue"
+        "uri": "https://github.com/Scorpio59/vsts-rest-multivalue"
     },
     "tags": [
         "Work Items",
@@ -62,14 +62,14 @@
     ],
     "contributions": [
         {
-            "id": "multivalue-form-control",
+            "id": "multivalue-control-ext",
             "type": "ms.vss-work-web.work-item-form-control",
             "description": "A work item form control which allows selection of multiple values.",
             "targets": [
                 "ms.vss-work-web.work-item-form"
             ],
             "properties": {
-                "name": "Rest Multivalue control",
+                "name": "Multivalue control ext",
                 "uri": "dist/multivalue.html",
                 "height": 50,
                 "inputs": [
@@ -88,9 +88,27 @@
                     {
                         "id":"Url",
                         "name": "Url for the suggested values",
+                        "description": "If the url is not null, the suggested values in the field are ignored.",
                         "validation": {
                             "dataType": "String",
-                            "isRequired": true
+                            "isRequired": false
+                        }
+                    },
+                    {
+                        "id":"Headers",
+                        "name": "Headers add in the rest request",
+                        "description": "Should be in JSON format like '{\"accept\":\"text/plain\"}'",
+                        "validation": {
+                            "dataType": "String",
+                            "isRequired": false
+                        }
+                    },
+                    {
+                        "id":"AlphabeticalOrder",
+                        "name": "Sort by alphabetical order values",
+                        "validation": {
+                            "dataType": "Boolean",
+                            "isRequired": false
                         }
                     },
                     {
@@ -99,6 +117,15 @@
                         "description": "If the url returns an array of objects, select which object property to use as the string. Leave blank if the server returns an array of strings.",
                         "validation": {
                             "dataType": "String",
+                            "isRequired": false
+                        }
+                    },
+                    {
+                        "id":"ItemLimit",
+                        "name": "Seletion limit",
+                        "description": "Limit the number of item selected. Leave blank to have no limit.",
+                        "validation": {
+                            "dataType": "Number",
                             "isRequired": false
                         }
                     }

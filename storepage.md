@@ -48,15 +48,18 @@ For each work item type to customize at the location
 ```
 add 
 ```xml
-<Extension Id="ottostreifel.vsts-rest-multivalue-control" />
+<Extension Id="rwahl.vsts-multivalue-control-ext" />
 ```
 Within the same Weblayout choose a group element and add
 ```xml
-              <ControlContribution Id="ottostreifel.vsts-rest-multivalue-control.multivalue-form-control" Label="<control name>"  >
+              <ControlContribution Id="rwahl.vsts-multivalue-control-ext.multivalue-control-ext" Label="<control name>"  >
                 <Inputs>
                   <Input Id="FieldName" Value="<longtext field reference name>" />
                   <Input Id="Url" Value="<url>" />
                   <Input Id="Property" Value="<property path>" />
+                  <Input Id="Headers" Value='<headers>' />
+                  <Input Id="AlphabeticalOrder" Value="true|false" />
+                  <Input Id="ItemLimit" Value="<number>" />
                 </Inputs>
               </ControlContribution>
 ```

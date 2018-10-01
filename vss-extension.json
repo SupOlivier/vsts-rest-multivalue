@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1.0,
     "id": "vsts-multivalue-control-ext",
-    "version": "2.0.17",
+    "version": "2.0.19",
     "name": "Multivalue Control Ext",
     "description": "A work item form control which allows selection of multiple values from rest apis or suggested values field.",
     "publisher": "rwahl",
@@ -88,7 +88,7 @@
                     {
                         "id":"Url",
                         "name": "Url for the suggested values",
-                        "description": "If the url is not null, the suggested values in the field are ignored.",
+                        "description": "If the url is filled, the suggested values in the field of the workitem are ignored.",
                         "validation": {
                             "dataType": "String",
                             "isRequired": false
@@ -106,6 +106,7 @@
                     {
                         "id":"AlphabeticalOrder",
                         "name": "Sort by alphabetical order values",
+                        "description": "Not sort if not set",
                         "validation": {
                             "dataType": "Boolean",
                             "isRequired": false

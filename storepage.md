@@ -64,6 +64,35 @@ Within the same Weblayout choose a group element and add
               </ControlContribution>
 ```
 
+Argument | Mandatory | Type | Description
+-------- | -------- | -------- | --------
+FieldName | true | string | Select the field for this control. This is the only input needed if the field is a picklist field with suggested values.
+Url | false | string | If the url is filled, the suggested values in the field of the workitem are ignored.
+Property | false | string | If the url returns an array of objects, select which object property to use as the string. Leave blank if the server returns an array of strings.
+Headers | false | string | Should be in JSON format like '{\"accept\":\"text/plain\"}'
+AlphabeticalOrder | false | boolean | Sort by alphabetical order values
+ItemLimit | false | number | Limit the number of item selected. Leave blank to have no limit.
+
+# Example usage : Get values from a JSON in a Git Repository
+
+```xml
+    <ControlContribution Id="rwahl.vsts-multivalue-control-ext.multivalue-control-ext" Label="PlainText ExternalTest"  >
+        <Inputs>
+            <Input Id="FieldName" Value="CapsuleTech.PlainText.ExternalTest" />
+            <Input Id="Url" Value="http://TFSSERVER/tfs/MyCollection/_apis/git/repositories/REPOSITORY_GUID/items/MyFile.json" />
+            <Input Id="Headers" Value='{"accept":"text/plain"}' />
+            <Input Id="AlphabeticalOrder" Value="true" />
+            <Input Id="ItemLimit" Value="3" />
+        </Inputs>
+    </ControlContribution>
+```
+
+The json file "MyFile.json" in git repository should be on the same Tfs server (for authentication reason) and values should be in one line.
+**Example:**
+```
+[ "Ford", "BMW", "Audi", "Fiat" ,"Renault","Nissan","Peugeot"]
+```
+
 
 # How to query
 

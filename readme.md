@@ -10,7 +10,8 @@ npm run build:release
 npm run package:dev
 ```
 
-
+## Documentation
+Internal documentation of the extension [storepage.md](https://github.com/Scorpio59/vsts-rest-multivalue/blob/master/storepage.md)
 
 ## Structure
 All build tasks are contained in [package.json](https://github.com/ostreifel/vsts-rest-multivalue/blob/master/package.json)

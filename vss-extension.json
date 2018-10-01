@@ -103,6 +103,12 @@
                             "isRequired": false
                         }
                     },
+                    {
+                        "id":"AlphabeticalOrder",
+                        "name": "Sort by alphabetical order values",
+                        "validation": {
+                            "dataType": "Boolean",
+                            "isRequired": false
                         }
                     },
                     {

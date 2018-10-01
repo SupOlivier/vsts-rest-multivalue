@@ -25,6 +25,10 @@ export async function getSuggestedValues(): Promise<string[]> {
         const service = await WorkItemFormService.getService();
         _suggestedValues = service.getAllowedFieldValues(VSS.getConfiguration().witInputs.FieldName) as Promise<string[]>;
     }
+
+    if(inputs.AlphabeticalOrder){
+        _suggestedValues=  _suggestedValues.then(v => v.sort());
+    }
     return _suggestedValues;
 }
 
@@ -58,7 +62,7 @@ function _findArr(data: object): string[] {
             for (const key in obj) {
                 objs.push(obj[key]);
             }
-        }
+        } 
     }
     return [];
 }

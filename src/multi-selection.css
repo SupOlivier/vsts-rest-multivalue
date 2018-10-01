@@ -12,6 +12,7 @@
 }
 #container .multi-value-control .options button {
     width: 100%;
+    border-color: transparent;
 }
 #container .multi-value-control .options button:hover {
     background-color: aliceblue;

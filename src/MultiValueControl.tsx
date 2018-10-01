@@ -9,6 +9,7 @@ import { trackEvent } from "./events";
 
 interface IMultiValueControlProps {
     selected?: string[];
+    itemLimit?: number;
     width?: number;
     readOnly?: boolean;
     placeholder?: string;
@@ -49,6 +50,7 @@ export class MultiValueControl extends React.Component<IMultiValueControlProps, 
                 }}
                 onChange={this._onTagsChanged}
                 onResolveSuggestions={() => []}
+                itemLimit= {this.props.itemLimit}
             />
             {focused ? this._getOptions() : null}
         </div>;
@@ -76,7 +78,7 @@ export class MultiValueControl extends React.Component<IMultiValueControlProps, 
                 direction={FocusZoneDirection.vertical}
                 className="checkboxes"
             >
-                {this.state.filter ? null :
+                {this.state.filter || this.props.itemLimit  ? null :
                 <Checkbox
                     label="Select All"
                     checked={selected.join(";") === options.join(";")}
@@ -89,6 +91,7 @@ export class MultiValueControl extends React.Component<IMultiValueControlProps, 
                 {filteredOpts
                 .map((o) => <Checkbox
                     checked={selected.indexOf(o) >= 0}
+                    disabled={selected.indexOf(o) < 0 && !!this.props.itemLimit && this.props.itemLimit < selected.length + 1  }
                     inputProps={{
                         onBlur: this._onBlur,
                         onFocus: this._onFocus,

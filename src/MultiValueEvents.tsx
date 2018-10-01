@@ -9,6 +9,7 @@ import { MultiValueControl } from "./MultiValueControl";
 initializeIcons();
 export class MultiValueEvents {
     public readonly fieldName = VSS.getConfiguration().witInputs.FieldName;
+    public readonly itemLimit = VSS.getConfiguration().witInputs.ItemLimit;
     private readonly _container = document.getElementById("container") as HTMLElement;
     private _onRefreshed: () => void;
     /** Counter to avoid consuming own changed field events. */
@@ -27,6 +28,7 @@ export class MultiValueEvents {
         }
         ReactDOM.render(<MultiValueControl
             selected={selected}
+            itemLimit={this.itemLimit}
             options={await getSuggestedValues()}
             onSelectionChanged={this._setSelected}
             width={this._container.scrollWidth}

@@ -88,9 +88,21 @@
                     {
                         "id":"Url",
                         "name": "Url for the suggested values",
+                        "description": "If the url is not null, the suggested values in the field are ignored.",
                         "validation": {
                             "dataType": "String",
-                            "isRequired": true
+                            "isRequired": false
+                        }
+                    },
+                    {
+                        "id":"Headers",
+                        "name": "Headers add in the rest request",
+                        "description": "Should be in JSON format like '{\"accept\":\"text/plain\"}'",
+                        "validation": {
+                            "dataType": "String",
+                            "isRequired": false
+                        }
+                    },
                         }
                     },
                     {

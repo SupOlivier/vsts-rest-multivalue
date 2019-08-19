@@ -1,3 +1,12 @@
+**Hi,**
+
+**This is my GitHub learning project to develop Azure DevOpS extension.**
+**Don't lose your time to find an improvement of the [multi value extension](https://github.com/Microsoft/vsts-extension-multivalue-control)**
+
+**Thank's**
+
+- - -
+
 This a fork of the [multi value extension](https://github.com/Microsoft/vsts-extension-multivalue-control) that draws its values from an admin specified rest endpoint rather than a hard coded list.
 
 ## To Build
